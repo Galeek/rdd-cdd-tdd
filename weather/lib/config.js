@@ -9,6 +9,13 @@ var args = require('./args'),
 var path = pathing.dirname(require.main.filename) + '/lib/config.json',
     help = require('./help');
 
+/**
+ * Represents a configuration.
+ * Initializes the variables.
+ * @constructor
+ * @param {struct} units - structure of units (of type, temperature and speed).
+ * @param {string} ip - ip adresss.
+ */
 function Config(units, ip) {
     this.args = parseArgs(process.argv.slice(2));
     this.units = units;
@@ -53,7 +60,14 @@ if(!String.prototype.includes) {
     };
 }
 
-
+/**
+ * Represents a configuration function.
+ * Displays the data.
+ * @function
+ * @param {string} args - arguments.
+ * @param {struct} units - structure of units (of type, temperature and speed).
+ * @param {string} ip - ip adresss.
+ */
 function write(args, units, ip) {
 
     console.log(chalk.red('you may have to use ') + chalk.bgBlack.white('sudo') +
